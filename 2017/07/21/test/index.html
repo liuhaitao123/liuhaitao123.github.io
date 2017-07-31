@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="Little Star">
 <meta property="og:description" content="准备工作   Linux系统：阿里云Centos系统 域名：lindaiyu520.com">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-31T07:47:30.265Z">
+<meta property="og:updated_time" content="2017-07-31T07:52:11.250Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Centos+Nginx+Gunicorn+supervisor+virtualenv部署django项目">
 <meta name="twitter:description" content="准备工作   Linux系统：阿里云Centos系统 域名：lindaiyu520.com">
@@ -439,7 +439,8 @@
 <blockquote>
 <p>查看 <code>gunicorn</code> 服务是否启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">$ sudo ps -aux | grep gunicorn</div></pre></td></tr></table></figure></p>
 </blockquote>
-<p><code>supervisor</code> 常用命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ /etc/init.d/supervisord status  # supervisor running status</div><div class="line">$ /etc/init.d/supervisord stop    # stop supervisor service</div><div class="line">$ /etc/init.d/supervisord start   # start supervisor service</div><div class="line">$ /etc/init.d/supervisord reload  # reload supervisor</div><div class="line">``` </div><div class="line"></div><div class="line">配置 `nginx` 配置文件</div></pre></td></tr></table></figure></p>
+<p><code>supervisor</code> 常用命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ /etc/init.d/supervisord status  # supervisor running status</div><div class="line">$ /etc/init.d/supervisord stop    # stop supervisor service</div><div class="line">$ /etc/init.d/supervisord start   # start supervisor service</div><div class="line">$ /etc/init.d/supervisord reload  # reload supervisor</div><div class="line">``` </div><div class="line"></div><div class="line">配置 `nginx` 配置文件</div></pre></td></tr></table></figure>
 <p>upstream xmooc_app_server {<br>   server unix:/home/liu/sites/lindaiyu520.com/run/gunicorn.sock fail_timeout=0;</p>
 <p>}<br>server {<br>   listen 80;<br>   server_name 120.24.182.213 lindaiyu520.com www.lindaiyu520.com;<br>   client_max_body_size 4G;<br>   access_log /home/liu/sites/lindaiyu520.com/logs/nginx-access.log;<br>   error_log /home/liu/sites/lindaiyu520.com/logs/nginx-error.log;</p>
 <p>   location /static/ {<br>       alias /home/liu/sites/lindaiyu520.com/xmooc/static/;<br>       }</p>
