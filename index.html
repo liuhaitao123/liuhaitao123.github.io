@@ -331,8 +331,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
+                  <a href="/categories/Django/" itemprop="url" rel="index">
+                    <span itemprop="name">Django</span>
                   </a>
                 </span>
 
@@ -367,9 +367,94 @@
       
         
           
-            <h1 id="this-is-a-test-file"><a href="#this-is-a-test-file" class="headerlink" title="this is a test file."></a>this is a test file.</h1><blockquote>
-<p>你好</p>
+            <blockquote>
+<p>准备工作</p>
 </blockquote>
+<ul>
+<li>Linux系统：阿里云Centos系统</li>
+<li>域名：lindaiyu520.com</li>
+</ul>
+<blockquote>
+<p>更新系统</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo yum update</div><div class="line">$ sudo yum upgrade</div></pre></td></tr></table></figure>
+<blockquote>
+<p>创建django应用用户与用户组</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo groupadd --system webapps</div><div class="line">$ sudo useradd --system --gid webapps --shell /bin/bash  liutao</div></pre></td></tr></table></figure>
+<blockquote>
+<p>安装 <code>virtualenv</code> 和创建虚拟环境</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install python-virtualenv</div></pre></td></tr></table></figure>
+<blockquote>
+<p>创建项目目录并更改该目录的所有者</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo mkdir -p /home/liu/sites/lindaiyu520.com</div><div class="line">$ sudo chown liutao /home/liu/sites/</div></pre></td></tr></table></figure>
+<blockquote>
+<p>切换用户并创建虚拟环境</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ su - liutao</div><div class="line">$ cd /home/liu/sites/lindaiyu520.com</div><div class="line">$ virtualenv --python=/usr/local/python/bin/python2.7 env</div></pre></td></tr></table></figure>
+<p>查看目录 <code>lindaiyu520.com</code> 目录下多了一个 <code>env</code>  的文件夹，则表示创建虚拟环境成功。</p>
+<ul>
+<li>激活虚拟环境<br>在 <code>lindaiyu520.com</code> 目录下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ source env/bin/activate</div><div class="line">(env)[liutao@centos lindaiyu520.com]$</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>安装 <code>django1.9.8</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pip install django==1.9.8</div></pre></td></tr></table></figure></p>
+<p>拉取 <code>github</code> 上的项目代码</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone git@github.com:liuhaitao123/xmooc.git</div></pre></td></tr></table></figure>
+<p>此时目录结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">/home/liu/sites/lindaiyu520.com</div><div class="line">                   |</div><div class="line">                   |----- env</div><div class="line">                   |----- xmooc</div></pre></td></tr></table></figure>
+<p>修改 <code>settings</code> 文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&apos;default&apos;: &#123;</div><div class="line">        &apos;ENGINE&apos;: &apos;django.db.backends.mysql&apos;,</div><div class="line">        &apos;NAME&apos;: &apos;数据库名&apos;,</div><div class="line">        &apos;USER&apos;: &apos;用户名&apos;,</div><div class="line">        &apos;PASSWORD&apos;: &apos;密码&apos;,</div><div class="line">        &apos;HOST&apos;: &apos;主机ip地址&apos;,</div><div class="line">        &apos;PORT&apos;: &apos;3306&apos;,</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>安装 <code>python依赖包</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pip install -r requirements.txt</div></pre></td></tr></table></figure>
+<blockquote>
+<p>生成和运行迁移</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ python manage.py makemigrations</div><div class="line">$ python manage.py migrate</div><div class="line">$ python manage.py createsuperuser</div></pre></td></tr></table></figure>
+<blockquote>
+<p>安装 <code>gunicorn</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pip install gunicorn</div></pre></td></tr></table></figure>
+<p>为了真正在生产环境下使用Gunicorn，我们还需要增加一些配置。<br>我们把这些配置文件写成一个bash脚本，保存为 <code>/home/liu/sites/lindaiyu520/bin/gunicorn_start</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line">NAME=&quot;xmooc&quot; # Name of the application</div><div class="line">DJANGODIR=/home/liu/sites/lindaiyu520.com/xmooc # Django project directory</div><div class="line">SOCKFILE=/home/liu/sites/lindaiyu520.com/run/gunicorn.sock # we will communicte using this unix socket</div><div class="line">USER=liu # the user to run as</div><div class="line">GROUP=liu # the group to run as</div><div class="line">NUM_WORKERS=3 # how many worker processes should Gunicorn spawn</div><div class="line">DJANGO_SETTINGS_MODULE=xmooc.settings # which settings file should Django use</div><div class="line">DJANGO_WSGI_MODULE=xmooc.wsgi # WSGI module name</div><div class="line"></div><div class="line">echo &quot;Starting $NAME as `whoami`&quot;</div><div class="line"></div><div class="line"># Activate the virtual environment</div><div class="line">cd $DJANGODIR</div><div class="line">source ../env/bin/activate</div><div class="line">export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE</div><div class="line">export PYTHONPATH=$DJANGODIR:$PYTHONPATH</div><div class="line"></div><div class="line"># Create the run directory if it doesn&apos;t exist</div><div class="line">RUNDIR=$(dirname $SOCKFILE)</div><div class="line">test -d $RUNDIR || mkdir -p $RUNDIR</div><div class="line"></div><div class="line"># Start your Django Unicorn</div><div class="line"># Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon)</div><div class="line">exec ../env/bin/gunicorn $&#123;DJANGO_WSGI_MODULE&#125;:application \</div><div class="line">--name $NAME \</div><div class="line">--workers $NUM_WORKERS \</div><div class="line">--user=$USER --group=$GROUP \</div><div class="line">--bind=unix:$SOCKFILE \</div><div class="line">--log-level=debug \</div><div class="line">--log-file=-</div></pre></td></tr></table></figure>
+<blockquote>
+<p>添加可执行权限</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo chmod u+x /home/liu/sites/lindaiyu520/bin/gunicorn_start</div></pre></td></tr></table></figure>
+<p>此时目录结构：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">/home/liu/sites/lindaiyu520.com</div><div class="line">                   |</div><div class="line">                   |----- env       # Virtual environment</div><div class="line">                   |----- xmooc     # Django project directory </div><div class="line">				   |----- bin       # Start gunicorn shell script directory</div><div class="line">				       |</div><div class="line">					   |--- gunicorn_start  # shell script</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>安装 <code>supervisor</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install supervisor</div></pre></td></tr></table></figure>
+<p>修改 <code>supervisor</code> 的配置文件，我的在 <code>/etc/supervisord.conf</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">[program:xmooc]</div><div class="line">command = /home/liu/sites/lindaiyu520.com/bin/gunicorn_start                   ;</div><div class="line">autostart = true                                                               ;</div><div class="line">startsecs = 5                                                                  ;</div><div class="line">autorestart = true                                                             ;</div><div class="line">startretries = 5                                                               ;</div><div class="line">user = root                                                                    ;</div><div class="line">redirect_stderr = true                                                         ;</div><div class="line">stdout_logfile_maxbytes = 20MB                                                 ;</div><div class="line">stdout_logfile_backups = 20                                                    ;</div><div class="line">stdout_logfile = /home/liu/sites/lindaiyu520.com/logs/gunicorn_supervisor.log  ;</div><div class="line">environment=LANG=en_US.UTF-8,LC_ALL=en_US.UTF-8                                ;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>指定 <code>supervisor</code> 启动的配置文件</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo supervisord -c /etc/supervisord.conf</div></pre></td></tr></table></figure>
+<blockquote>
+<p>启动 <code>supervisor</code> 服务</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo supervisord</div></pre></td></tr></table></figure>
+<blockquote>
+<p>查看 <code>gunicorn</code> 服务是否启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">$ sudo ps -aux | grep gunicorn</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p><code>supervisor</code> 常用命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ /etc/init.d/supervisord status  # supervisor running status</div><div class="line">$ /etc/init.d/supervisord stop    # stop supervisor service</div><div class="line">$ /etc/init.d/supervisord start   # start supervisor service</div><div class="line">$ /etc/init.d/supervisord reload  # reload supervisor</div><div class="line">``` </div><div class="line"></div><div class="line">配置 `nginx` 配置文件</div></pre></td></tr></table></figure></p>
+<p>upstream xmooc_app_server {<br>   server unix:/home/liu/sites/lindaiyu520.com/run/gunicorn.sock fail_timeout=0;</p>
+<p>}<br>server {<br>   listen 80;<br>   server_name 120.24.182.213 lindaiyu520.com www.lindaiyu520.com;<br>   client_max_body_size 4G;<br>   access_log /home/liu/sites/lindaiyu520.com/logs/nginx-access.log;<br>   error_log /home/liu/sites/lindaiyu520.com/logs/nginx-error.log;</p>
+<p>   location /static/ {<br>       alias /home/liu/sites/lindaiyu520.com/xmooc/static/;<br>       }</p>
+<p>   location / {<br>       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</p>
+<pre><code>proxy_set_header Host $http_host;
+
+proxy_redirect off;
+
+proxy_pass http://xmooc_app_server;
+</code></pre><p>   }<br> }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&gt; 收集静态文件</div></pre></td></tr></table></figure>
+<p>$ python manage.py collectstatic<br>```</p>
 
           
         
