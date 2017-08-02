@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-02T03:57:06.250Z</updated>
+  <updated>2017-08-02T05:18:33.656Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/07/21/test/"/>
     <id>http://yoursite.com/2017/07/21/test/</id>
     <published>2017-07-21T04:37:50.000Z</published>
-    <updated>2017-08-02T03:57:06.250Z</updated>
+    <updated>2017-08-02T05:18:33.656Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>准备工作</p>
@@ -56,13 +56,17 @@
 </li>
 </ul>
 <blockquote>
-<p>安装 <code>django1.9.8</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pip install django==1.9.8</div></pre></td></tr></table></figure></p>
+<p>安装 <code>django1.9.8</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pip install django==1.9.8</div></pre></td></tr></table></figure>
+<blockquote>
 <p>拉取 <code>github</code> 上的项目代码</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone git@github.com:liuhaitao123/xmooc.git</div></pre></td></tr></table></figure>
 <p>此时目录结构：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">/home/liu/sites/lindaiyu520.com</div><div class="line">                   |</div><div class="line">                   |----- env</div><div class="line">                   |----- xmooc</div></pre></td></tr></table></figure>
-<p>修改 <code>settings</code> 文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&apos;default&apos;: &#123;</div><div class="line">        &apos;ENGINE&apos;: &apos;django.db.backends.mysql&apos;,</div><div class="line">        &apos;NAME&apos;: &apos;数据库名&apos;,</div><div class="line">        &apos;USER&apos;: &apos;用户名&apos;,</div><div class="line">        &apos;PASSWORD&apos;: &apos;密码&apos;,</div><div class="line">        &apos;HOST&apos;: &apos;主机ip地址&apos;,</div><div class="line">        &apos;PORT&apos;: &apos;3306&apos;,</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>修改 <code>settings</code> 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&apos;default&apos;: &#123;</div><div class="line">        &apos;ENGINE&apos;: &apos;django.db.backends.mysql&apos;,</div><div class="line">        &apos;NAME&apos;: &apos;数据库名&apos;,</div><div class="line">        &apos;USER&apos;: &apos;用户名&apos;,</div><div class="line">        &apos;PASSWORD&apos;: &apos;密码&apos;,</div><div class="line">        &apos;HOST&apos;: &apos;主机ip地址&apos;,</div><div class="line">        &apos;PORT&apos;: &apos;3306&apos;,</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <blockquote>
 <p>安装 <code>python依赖包</code></p>
 </blockquote>
@@ -81,12 +85,14 @@
 <p>添加可执行权限</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo chmod u+x /home/liu/sites/lindaiyu520/bin/gunicorn_start</div></pre></td></tr></table></figure>
-<p>此时目录结构：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">/home/liu/sites/lindaiyu520.com</div><div class="line">                   |</div><div class="line">                   |----- env       # Virtual environment</div><div class="line">                   |----- xmooc     # Django project directory </div><div class="line">				   |----- bin       # Start gunicorn shell script directory</div><div class="line">				       |</div><div class="line">					   |--- gunicorn_start  # shell script</div></pre></td></tr></table></figure></p>
+<p>此时目录结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">/home/liu/sites/lindaiyu520.com</div><div class="line">                   |</div><div class="line">                   |----- env       # Virtual environment</div><div class="line">                   |----- xmooc     # Django project directory </div><div class="line">				   |----- bin       # Start gunicorn shell script directory</div><div class="line">				       |</div><div class="line">					   |--- gunicorn_start  # shell script</div></pre></td></tr></table></figure>
 <blockquote>
 <p>安装 <code>supervisor</code></p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo yum install supervisor</div></pre></td></tr></table></figure>
-<p>修改 <code>supervisor</code> 的配置文件，我的在 <code>/etc/supervisord.conf</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">[program:xmooc]</div><div class="line">command = /home/liu/sites/lindaiyu520.com/bin/gunicorn_start                   ;</div><div class="line">autostart = true                                                               ;</div><div class="line">startsecs = 5                                                                  ;</div><div class="line">autorestart = true                                                             ;</div><div class="line">startretries = 5                                                               ;</div><div class="line">user = root                                                                    ;</div><div class="line">redirect_stderr = true                                                         ;</div><div class="line">stdout_logfile_maxbytes = 20MB                                                 ;</div><div class="line">stdout_logfile_backups = 20                                                    ;</div><div class="line">stdout_logfile = /home/liu/sites/lindaiyu520.com/logs/gunicorn_supervisor.log  ;</div><div class="line">environment=LANG=en_US.UTF-8,LC_ALL=en_US.UTF-8                                ;</div></pre></td></tr></table></figure></p>
+<p>修改 <code>supervisor</code> 的配置文件，我的在 <code>/etc/supervisord.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">[program:xmooc]</div><div class="line">command = /home/liu/sites/lindaiyu520.com/bin/gunicorn_start                   ;</div><div class="line">autostart = true                                                               ;</div><div class="line">startsecs = 5                                                                  ;</div><div class="line">autorestart = true                                                             ;</div><div class="line">startretries = 5                                                               ;</div><div class="line">user = root                                                                    ;</div><div class="line">redirect_stderr = true                                                         ;</div><div class="line">stdout_logfile_maxbytes = 20MB                                                 ;</div><div class="line">stdout_logfile_backups = 20                                                    ;</div><div class="line">stdout_logfile = /home/liu/sites/lindaiyu520.com/logs/gunicorn_supervisor.log  ;</div><div class="line">environment=LANG=en_US.UTF-8,LC_ALL=en_US.UTF-8                                ;</div></pre></td></tr></table></figure>
 <blockquote>
 <p>指定 <code>supervisor</code> 启动的配置文件</p>
 </blockquote>
@@ -140,16 +146,16 @@ proxy_pass http://xmooc_app_server;
     <link href="http://yoursite.com/2017/07/21/hello-world/"/>
     <id>http://yoursite.com/2017/07/21/hello-world/</id>
     <published>2017-07-21T03:46:09.593Z</published>
-    <updated>2017-08-02T03:31:40.609Z</updated>
+    <updated>2017-08-02T05:18:43.750Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <p>Hexo 介绍<br>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<a id="more"></a>
 <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><h4 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提"></a>安装前提</h4><p>安装 <code>Hexo</code> 相当简单， 然而在安装前，您必须检查电脑中是否已安装下列应用程序：</p>
 <ul>
 <li>Node.js</li>
 <li>Git</li>
 </ul>
-<a id="more"></a>
 <h4 id="使用-npm-安装-Hexo"><a href="#使用-npm-安装-Hexo" class="headerlink" title="使用 npm 安装 Hexo"></a>使用 <code>npm</code> 安装 <code>Hexo</code></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo</div></pre></td></tr></table></figure>
 <h4 id="初始化-Hexo"><a href="#初始化-Hexo" class="headerlink" title="初始化 Hexo"></a>初始化 <code>Hexo</code></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init</div></pre></td></tr></table></figure>
 <p><code>Hexo</code> 将会在当前文件夹中新建一个名为 <code>hexo</code> 的文件夹。</p>
@@ -175,11 +181,6 @@ proxy_pass http://xmooc_app_server;
     
       &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Hexo 介绍&lt;br&gt;Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。&lt;/p&gt;
-&lt;h4 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h4&gt;&lt;h4 id=&quot;安装前提&quot;&gt;&lt;a href=&quot;#安装前提&quot; class=&quot;headerlink&quot; title=&quot;安装前提&quot;&gt;&lt;/a&gt;安装前提&lt;/h4&gt;&lt;p&gt;安装 &lt;code&gt;Hexo&lt;/code&gt; 相当简单， 然而在安装前，您必须检查电脑中是否已安装下列应用程序：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Node.js&lt;/li&gt;
-&lt;li&gt;Git&lt;/li&gt;
-&lt;/ul&gt;
     
     </summary>
     
