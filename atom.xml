@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-02T05:18:33.656Z</updated>
+  <updated>2017-08-02T05:25:53.671Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/07/21/test/"/>
     <id>http://yoursite.com/2017/07/21/test/</id>
     <published>2017-07-21T04:37:50.000Z</published>
-    <updated>2017-08-02T05:18:33.656Z</updated>
+    <updated>2017-08-02T05:25:53.671Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>准备工作</p>
@@ -106,18 +106,13 @@
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo ps -aux | grep gunicorn</div></pre></td></tr></table></figure>
 <p><code>supervisor</code> 常用命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ /etc/init.d/supervisord status  # supervisor running status</div><div class="line">$ /etc/init.d/supervisord stop    # stop supervisor service</div><div class="line">$ /etc/init.d/supervisord start   # start supervisor service</div><div class="line">$ /etc/init.d/supervisord reload  # reload supervisor</div><div class="line">``` </div><div class="line"></div><div class="line">配置 `nginx` 配置文件</div></pre></td></tr></table></figure>
-<p>upstream xmooc_app_server {<br>   server unix:/home/liu/sites/lindaiyu520.com/run/gunicorn.sock fail_timeout=0;</p>
-<p>}<br>server {<br>   listen 80;<br>   server_name 120.24.182.213 lindaiyu520.com www.lindaiyu520.com;<br>   client_max_body_size 4G;<br>   access_log /home/liu/sites/lindaiyu520.com/logs/nginx-access.log;<br>   error_log /home/liu/sites/lindaiyu520.com/logs/nginx-error.log;</p>
-<p>   location /static/ {<br>       alias /home/liu/sites/lindaiyu520.com/xmooc/static/;<br>       }</p>
-<p>   location / {<br>       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</p>
-<pre><code>proxy_set_header Host $http_host;
-
-proxy_redirect off;
-
-proxy_pass http://xmooc_app_server;
-</code></pre><p>   }<br> }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&gt; 收集静态文件</div></pre></td></tr></table></figure></p>
-<p>$ python manage.py collectstatic<br>```</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ /etc/init.d/supervisord status  # supervisor running status</div><div class="line">$ /etc/init.d/supervisord stop    # stop supervisor service</div><div class="line">$ /etc/init.d/supervisord start   # start supervisor service</div><div class="line">$ /etc/init.d/supervisord reload  # reload supervisor</div></pre></td></tr></table></figure>
+<p>配置 <code>nginx</code> 配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">upstream xmooc_app_server &#123;</div><div class="line">   server unix:/home/liu/sites/lindaiyu520.com/run/gunicorn.sock fail_timeout=0;</div><div class="line"></div><div class="line">&#125;</div><div class="line">server &#123;</div><div class="line">   listen 80;</div><div class="line">   server_name 120.24.182.213 lindaiyu520.com www.lindaiyu520.com;</div><div class="line">   client_max_body_size 4G;</div><div class="line">   access_log /home/liu/sites/lindaiyu520.com/logs/nginx-access.log;</div><div class="line">   error_log /home/liu/sites/lindaiyu520.com/logs/nginx-error.log;</div><div class="line"></div><div class="line">   location /static/ &#123;</div><div class="line">       alias /home/liu/sites/lindaiyu520.com/xmooc/static/;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">   location / &#123;</div><div class="line">       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</div><div class="line"></div><div class="line">       proxy_set_header Host $http_host;</div><div class="line"></div><div class="line">       proxy_redirect off;</div><div class="line"></div><div class="line">       proxy_pass http://xmooc_app_server;</div><div class="line">   &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>收集静态文件</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ python manage.py collectstatic</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
